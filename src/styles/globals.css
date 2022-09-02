@@ -1,6 +1,10 @@
 :root {
   --black: #090909;
   --white: #ffffff;
+  --light-gray: #cecece;
+  --gray: gray;
+  --red: #d92e2e;
+  --green: green;
 }
 
 *,
@@ -21,6 +25,7 @@ body {
   margin: 0;
   line-height: inherit;
   background-color: var(--black);
+  color: var(--white);
 }
 
 h1,
