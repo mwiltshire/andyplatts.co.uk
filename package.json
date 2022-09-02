@@ -9,13 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "formik": "^2.2.9",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.3.0",
     "styled-components": "^5.3.5",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@contentful/rich-text-types": "^15.12.1",
     "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
