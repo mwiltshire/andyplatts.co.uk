@@ -8,12 +8,7 @@ interface NavMenuProps {
   onMenuItemClick: () => void;
 }
 
-const navItems = [
-  { label: 'About' },
-  { label: 'Work' },
-  { label: 'Releases' },
-  { label: 'Contact' }
-];
+const navItems = [{ label: 'About' }, { label: 'Work' }, { label: 'Contact' }];
 
 const scrollTo = createScrollTo({ offset: -64 });
 

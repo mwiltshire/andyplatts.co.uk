@@ -6,18 +6,14 @@ import { Section } from '../components/Section';
 
 interface HomeProps {
   siteTitle: string;
-  siteSubtitle: string;
 }
 
-export function Home({ siteTitle, siteSubtitle }: HomeProps) {
+export function Home({ siteTitle }: HomeProps) {
   return (
     <Section id="home">
       <Container maxWidth={['55rem']}>
-        <Heading level={1} fontSize="13vmin" marginBottom="0.25rem">
+        <Heading level={1} fontSize="13vmin" marginBottom="1.25rem">
           {siteTitle}
-        </Heading>
-        <Heading level={2} fontSize="5vmin" marginBottom="1.5rem">
-          {siteSubtitle}
         </Heading>
       </Container>
       <Container maxWidth={[1150]}>

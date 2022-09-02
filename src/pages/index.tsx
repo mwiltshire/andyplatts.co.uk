@@ -2,12 +2,10 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Document } from '@contentful/rich-text-types';
 import { Toaster } from 'react-hot-toast';
-import { Container } from '../components/Container';
 import { About } from '../sections/About';
 import { Footer } from '../sections/Footer';
 import { Home } from '../sections/Home';
 import { Work } from '../sections/Work';
-import { Releases } from '../sections/Releases';
 import { Contact } from '../sections/Contact';
 import { Header } from '../components/Header';
 import { Box } from '../components/Box';
@@ -32,7 +30,7 @@ function getWorkItems(content: Content) {
       heading: 'Young Gun Silver Fox',
       content: workYoungGunSilverFox,
       imageAlt: 'Young Gun Silver Fox West End Coast album cover',
-      imageUrl: '/young-gun-silver-fox.jpeg',
+      imageUrl: '/young-gun-silver-fox.jpg',
       blurDataURL:
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAP0lEQVQImQE0AMv/ADVJOTxZTG5/ag0AAAAhHg1DOySHhml2cVMAlYlmxLaO///Y7ua7AJiJYqCUceXWqsW1jNLHFx8EUI/UAAAAAElFTkSuQmCC'
     },
@@ -80,18 +78,11 @@ function Index({ content }: IndexProps & NextPage) {
       />
       <Header />
       <Box as="main" pt="2rem">
-        <Home
-          siteTitle={content.siteTitle}
-          siteSubtitle={content.siteSubtitle}
-        />
+        <Home siteTitle={content.siteTitle} />
         <About headingText={content.aboutHeading} content={content.aboutText} />
         <Work
           headingText={content.workHeading}
           workItems={getWorkItems(content)}
-        />
-        <Releases
-          headingText={content.releasesHeading}
-          releasesTable={content.releasesTable}
         />
         <Contact headingText={content.contactHeading} />
         <Footer />
@@ -102,7 +93,6 @@ function Index({ content }: IndexProps & NextPage) {
 
 interface Content {
   siteTitle: string;
-  siteSubtitle: string;
   aboutHeading: string;
   aboutText: Document;
   workHeading: string;
