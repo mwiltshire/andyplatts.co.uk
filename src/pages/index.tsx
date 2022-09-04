@@ -49,8 +49,11 @@ function Index({ content }: IndexProps & NextPage) {
   return (
     <div>
       <Head>
-        <title>Andy Platts - Artists / Songwriter / Producer</title>
-        <meta name="description" content="Andy Platts" />
+        <title>Andy Platts</title>
+        <meta
+          name="description"
+          content="British Songwriter for Mamas Gun, Young Gun Silver Fox, Park Hyo Shin and many others."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Toaster
