@@ -26,7 +26,7 @@ export function About({ headingText, content }: AboutProps) {
   return (
     <Section id="about">
       <Container maxWidth="55rem">
-        <Heading level={3} fontSize="13vmin" marginBottom="10vmin" underline>
+        <Heading level={2} fontSize="13vmin" marginBottom="10vmin" underline>
           {headingText}
         </Heading>
       </Container>

@@ -39,7 +39,7 @@ export function Releases({ headingText, releasesTable }: ReleasesProps) {
   return (
     <Section id="releases">
       <Container maxWidth="55rem">
-        <Heading level={3} fontSize="13vmin" marginBottom="10vmin" underline>
+        <Heading level={2} fontSize="13vmin" marginBottom="10vmin" underline>
           {headingText}
         </Heading>
       </Container>

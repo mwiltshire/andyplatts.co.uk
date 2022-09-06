@@ -39,7 +39,7 @@ export function Work({ headingText, workItems }: WorkProps) {
   return (
     <Section id="work">
       <Container maxWidth="55rem">
-        <Heading level={3} fontSize="13vmin" marginBottom="10vmin" underline>
+        <Heading level={2} fontSize="13vmin" marginBottom="10vmin" underline>
           {headingText}
         </Heading>
       </Container>
@@ -67,7 +67,7 @@ export function Work({ headingText, workItems }: WorkProps) {
                   />
                 </Box>
                 <Box>
-                  <Heading level={4} fontSize="1.5rem" marginBottom="0.5rem">
+                  <Heading level={3} fontSize="1.5rem" marginBottom="0.5rem">
                     {item.heading}
                   </Heading>
                   <ShowMore maxHeight={300}>
