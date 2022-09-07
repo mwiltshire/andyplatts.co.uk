@@ -55,7 +55,7 @@ const MenuButton = styled.button`
   background: none;
   outline: none;
   color: inherit;
-  font-size: 4vmin;
+  font-size: 2.5vmax;
   text-transform: uppercase;
   cursor: pointer;
   padding: 0;
