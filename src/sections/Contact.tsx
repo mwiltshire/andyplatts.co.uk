@@ -69,6 +69,7 @@ interface FormLabels {
   name: string;
   email: string;
   message: string;
+  submit: string;
 }
 
 interface ContactProps {
@@ -131,7 +132,7 @@ export function Contact({ headingText, content, labels }: ContactProps) {
                     placeholder="Enter your message here..."
                   />
                 </Stack>
-                <SubmitButton>Submit</SubmitButton>
+                <SubmitButton>{labels.submit}</SubmitButton>
               </Stack>
             </Form>
           </Formik>

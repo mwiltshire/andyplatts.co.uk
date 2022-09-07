@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import { Document } from '@contentful/rich-text-types';
 import { Toaster } from 'react-hot-toast';
@@ -93,7 +93,8 @@ function Index({ content }: IndexProps & NextPage) {
           labels={{
             name: content.nameInputLabel,
             email: content.emailInputLabel,
-            message: content.messageInputLabel
+            message: content.messageInputLabel,
+            submit: content.submitButtonText
           }}
         />
         <Footer />
