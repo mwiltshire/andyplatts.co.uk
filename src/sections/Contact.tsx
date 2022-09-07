@@ -25,7 +25,7 @@ async function submitForm(data: Record<string, string>) {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
+      body: new URLSearchParams({ 'form-name': 'contact', ...data }).toString()
     });
 
     if (!response.ok) {
@@ -102,7 +102,7 @@ export function Contact({ headingText, content, labels }: ContactProps) {
               noValidate
               name="contact"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              netlify-honeypot="bot-field"
             >
               <Stack gap="2rem">
                 <Stack gap="0.5rem">
