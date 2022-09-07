@@ -25,8 +25,8 @@ export function Home({ siteTitle }: HomeProps) {
           <Image
             src="/andy-platts.jpeg"
             alt="Andy Platts"
-            width={1920 / 2}
-            height={1280 / 2}
+            width={960}
+            height={640}
             layout="intrinsic"
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVQImWMQFRVtb2/X0tLi4eFhEBAQ+P//f3p6OhMTEwMDA8PHjx+vXr3Kzs4OAM7QDEafPSldAAAAAElFTkSuQmCC"
