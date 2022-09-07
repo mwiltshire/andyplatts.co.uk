@@ -39,12 +39,18 @@ const StyledInput = styled.input<{ hasError: boolean }>`
   font-size: inherit;
   color: var(--black);
   font-family: inherit;
+  border-radius: 0;
+  &:focus-within {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 `;
 
 const Error = styled.span`
   position: absolute;
   right: 0;
   top: 100%;
+  margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   background-color: var(--red);
   color: inherit;

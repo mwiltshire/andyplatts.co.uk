@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import FocusTrap from 'focus-trap-react';
 import { Box } from './Box';
 import { Container } from './Container';
 import { NavMenu } from './NavMenu';
@@ -7,29 +8,34 @@ import { NavMenu } from './NavMenu';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <StyledHeader>
-      <Container>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="flex-end"
-          height="5rem"
-        >
-          <MenuButton
-            id="nav-menu-button"
-            aria-haspopup="true"
-            aria-controls="nav-menu"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+    <FocusTrap
+      active={isMenuOpen}
+      focusTrapOptions={{ initialFocus: '#nav-menu-button' }}
+    >
+      <StyledHeader>
+        <Container>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            height="5rem"
           >
-            {isMenuOpen ? 'Close' : 'Menu'}
-          </MenuButton>
-          {isMenuOpen && (
-            <NavMenu onMenuItemClick={() => setIsMenuOpen(false)} />
-          )}
-        </Box>
-      </Container>
-    </StyledHeader>
+            <MenuButton
+              id="nav-menu-button"
+              aria-haspopup="true"
+              aria-controls="nav-menu"
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              {isMenuOpen ? 'Close' : 'Menu'}
+            </MenuButton>
+            {isMenuOpen && (
+              <NavMenu onMenuItemClick={() => setIsMenuOpen(false)} />
+            )}
+          </Box>
+        </Container>
+      </StyledHeader>
+    </FocusTrap>
   );
 }
 
@@ -49,8 +55,13 @@ const MenuButton = styled.button`
   background: none;
   outline: none;
   color: inherit;
-  font-size: 5vmin;
+  font-size: 4vmin;
   text-transform: uppercase;
   cursor: pointer;
   padding: 0;
+  padding-top: 0.5rem;
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 `;

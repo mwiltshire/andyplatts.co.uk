@@ -43,6 +43,11 @@ const StyledTextarea = styled.textarea<{ hasError: boolean }>`
   resize: none;
   min-height: 15rem;
   margin: 0;
+  border-radius: 0;
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 `;
 
 const Error = styled.span`

@@ -13,4 +13,8 @@ export const Link = styled.a`
   &:hover {
     background-size: 0 0.2rem, 100% 0.2rem;
   }
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 `;

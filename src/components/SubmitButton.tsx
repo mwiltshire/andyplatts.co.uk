@@ -43,10 +43,14 @@ const StyledButton = styled.button<{ isSubmitting: boolean }>`
   cursor: pointer;
   font-weight: 500;
   font-size: inherit;
-  transition: all 250ms ease-in;
+  transition: color 250ms ease-in, background-color 250ms ease-in;
   &:hover {
     color: var(--black);
     background-color: var(--white);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
   }
 `;
 

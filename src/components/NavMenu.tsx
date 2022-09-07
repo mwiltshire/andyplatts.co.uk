@@ -25,7 +25,7 @@ export function NavMenu({ onMenuItemClick }: NavMenuProps) {
           <NavList>
             {navItems.map(({ label }) => (
               <NavListItem key={label}>
-                <a
+                <NavLink
                   href={`#${label.toLowerCase()}`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -34,7 +34,7 @@ export function NavMenu({ onMenuItemClick }: NavMenuProps) {
                   }}
                 >
                   {label}
-                </a>
+                </NavLink>
               </NavListItem>
             ))}
           </NavList>
@@ -68,4 +68,12 @@ const NavList = styled.ul`
 const NavListItem = styled.li`
   margin: 0;
   padding: 0.5rem 0;
+`;
+
+const NavLink = styled.a`
+  padding-top: 1.25rem;
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 `;

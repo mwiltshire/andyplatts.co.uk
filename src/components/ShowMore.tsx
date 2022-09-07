@@ -50,4 +50,7 @@ const ShowMoreButton = styled.button`
   text-decoration: underline;
   text-decoration-thickness: 6px;
   text-underline-offset: 6px;
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+  }
 `;
