@@ -40,7 +40,7 @@ function getWorkItems(content: Content) {
       imageAlt: 'Park Hyo-Shin I Am A Dreamer album cover',
       imageUrl: '/park-hyo-shin.jpeg',
       blurDataURL:
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAHUwAAB1MAHdM3LNAAAAP0lEQVQImQE0AMv/AObi2sTBu8zKxPDu5wD///XKysKGhYGOjIcA//z0QkFBMzMzeXl2AKmmowAAAB0dHZSTj3IeHCtBDj1kAAAAAElFTkSuQmCC'
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAHUwAAB1MAHdM3LNAAAAP0lEQVR4nAE0AMv/AOvn3cC+t9HPyNzb1AD//vS5tq97e3eMjIcA8+/nMzEwPTw7gIB8AI2MhwAAACUkJJuZlFi3G1Uu4r+WAAAAAElFTkSuQmCC'
     }
   ];
 }
