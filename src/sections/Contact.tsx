@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import toast from 'react-hot-toast';
 import { Document, BLOCKS, INLINES, Node } from '@contentful/rich-text-types';
@@ -20,9 +20,38 @@ const schema = object().shape({
   message: string().required('Required field!')
 });
 
-async function handleSubmit() {
-  await new Promise((res) => setTimeout(res, 2000));
-  toast.success('Got it! Thanks for getting in touch!');
+async function submitForm(data: Record<string, string>) {
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Attempt to post form data resulted in ${response.status} response`
+      );
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      throw new Error(`Form submit error: ${e.message}`);
+    }
+
+    throw new Error('Unkown error sumitting form');
+  }
+}
+
+async function handleSubmit(data: Record<string, string>) {
+  try {
+    await submitForm(data);
+    toast.success('Got it! Thanks for responding!');
+  } catch (e) {
+    toast.error("Oh no! That didn't work, try again!");
+    // Sentry.captureException(e, {
+    //   contexts: { form: data as Record<string, string | undefined> }
+    // });
+  }
 }
 
 const options = {
@@ -68,9 +97,15 @@ export function Contact({ headingText, content, labels }: ContactProps) {
             }}
             onSubmit={handleSubmit}
           >
-            <Form noValidate>
+            <Form
+              noValidate
+              name="contact"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
               <Stack gap="2rem">
                 <Stack gap="0.5rem">
+                  <Field type="hidden" name="bot-field" />
                   <Label htmlFor="name">{labels.name}</Label>
                   <Input
                     id="name"
