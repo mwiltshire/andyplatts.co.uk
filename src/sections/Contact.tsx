@@ -1,6 +1,8 @@
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import toast from 'react-hot-toast';
+import { Document, BLOCKS, INLINES, Node } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Container } from '../components/Container';
 import { Heading } from '../components/Heading';
 import { Input } from '../components/Input';
@@ -23,11 +25,30 @@ async function handleSubmit() {
   toast.success('Got it! Thanks for getting in touch!');
 }
 
-interface AboutProps {
-  headingText: string;
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (_: unknown, children: React.ReactNode) => (
+      <Paragraph>{children}</Paragraph>
+    ),
+    [INLINES.HYPERLINK]: ({ data }: Node, children: React.ReactNode) => (
+      <Link href={data.uri}>{children}</Link>
+    )
+  }
+};
+
+interface FormLabels {
+  name: string;
+  email: string;
+  message: string;
 }
 
-export function Contact({ headingText }: AboutProps) {
+interface ContactProps {
+  headingText: string;
+  content: Document;
+  labels: FormLabels;
+}
+
+export function Contact({ headingText, content, labels }: ContactProps) {
   return (
     <Section id="contact">
       <Container maxWidth="55rem">
@@ -37,13 +58,7 @@ export function Contact({ headingText }: AboutProps) {
       </Container>
       <Container maxWidth="45rem">
         <Stack gap="2rem">
-          <Paragraph>
-            For management inquiries, contact{' '}
-            <Link href="mailto:carly@mg-management.co.uk">
-              carly@mg-management.co.uk
-            </Link>
-            .
-          </Paragraph>
+          {documentToReactComponents(content, options)}
           <Formik
             validationSchema={schema}
             initialValues={{
@@ -56,7 +71,7 @@ export function Contact({ headingText }: AboutProps) {
             <Form noValidate>
               <Stack gap="2rem">
                 <Stack gap="0.5rem">
-                  <Label htmlFor="name">First Name</Label>
+                  <Label htmlFor="name">{labels.name}</Label>
                   <Input
                     id="name"
                     name="name"
@@ -65,7 +80,7 @@ export function Contact({ headingText }: AboutProps) {
                   />
                 </Stack>
                 <Stack gap="0.5rem">
-                  <Label htmlFor="email">Last Name</Label>
+                  <Label htmlFor="email">{labels.email}</Label>
                   <Input
                     id="email"
                     name="email"
@@ -74,7 +89,7 @@ export function Contact({ headingText }: AboutProps) {
                   />
                 </Stack>
                 <Stack gap="0.5rem">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">{labels.message}</Label>
                   <TextArea
                     id="message"
                     name="message"

@@ -87,7 +87,15 @@ function Index({ content }: IndexProps & NextPage) {
           headingText={content.workHeading}
           workItems={getWorkItems(content)}
         />
-        <Contact headingText={content.contactHeading} />
+        <Contact
+          headingText={content.contactHeading}
+          content={content.contactContent}
+          labels={{
+            name: content.nameInputLabel,
+            email: content.emailInputLabel,
+            message: content.messageInputLabel
+          }}
+        />
         <Footer />
       </Box>
     </div>
@@ -105,6 +113,7 @@ interface Content {
   releasesHeading: string;
   releasesTable: Document;
   contactHeading: string;
+  contactContent: Document;
   nameInputLabel: string;
   emailInputLabel: string;
   messageInputLabel: string;
