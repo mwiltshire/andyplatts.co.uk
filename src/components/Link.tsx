@@ -10,6 +10,7 @@ export const Link = styled.a`
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
   transition: background-size 400ms;
+  cursor: pointer;
   &:hover {
     background-size: 0 0.2rem, 100% 0.2rem;
   }
