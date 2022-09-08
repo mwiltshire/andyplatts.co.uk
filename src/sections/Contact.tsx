@@ -46,7 +46,7 @@ async function submitForm(data: Record<string, string>) {
 async function handleSubmit(data: Record<string, string>) {
   try {
     await submitForm(data);
-    toast.success('Got it! Thanks for responding!');
+    toast.success('Got it! Thanks for getting in touch!');
   } catch (e) {
     toast.error("Oh no! That didn't work, try again!");
     Sentry.captureException(e, {
