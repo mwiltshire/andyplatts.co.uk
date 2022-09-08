@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@sentry/nextjs": "^7.12.1",
     "focus-trap-react": "^10.0.0",
     "formik": "^2.2.9",
     "next": "12.2.5",

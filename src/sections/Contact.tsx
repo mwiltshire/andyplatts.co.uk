@@ -3,6 +3,7 @@ import { object, string } from 'yup';
 import toast from 'react-hot-toast';
 import { Document, BLOCKS, INLINES, Node } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import * as Sentry from '@sentry/nextjs';
 import { Container } from '../components/Container';
 import { Heading } from '../components/Heading';
 import { Input } from '../components/Input';
@@ -48,9 +49,9 @@ async function handleSubmit(data: Record<string, string>) {
     toast.success('Got it! Thanks for responding!');
   } catch (e) {
     toast.error("Oh no! That didn't work, try again!");
-    // Sentry.captureException(e, {
-    //   contexts: { form: data as Record<string, string | undefined> }
-    // });
+    Sentry.captureException(e, {
+      contexts: { form: data as Record<string, string | undefined> }
+    });
   }
 }
 
