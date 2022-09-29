@@ -14,6 +14,7 @@ import { Section } from '../components/Section';
 import { Stack } from '../components/Stack';
 import { SubmitButton } from '../components/SubmitButton';
 import { TextArea } from '../components/Textarea';
+import { VisuallyHidden } from '../components/VisuallyHidden';
 
 const schema = object().shape({
   name: string().required('Required field!'),
@@ -107,7 +108,12 @@ export function Contact({ headingText, content, labels }: ContactProps) {
             >
               <Stack gap="2rem">
                 <Stack gap="0.5rem">
-                  <Field type="hidden" name="url" />
+                  <VisuallyHidden>
+                    <label>
+                      Do not fill this field!
+                      <Field autoComplete="off" name="url" />
+                    </label>
+                  </VisuallyHidden>
                   <Label htmlFor="name">{labels.name}</Label>
                   <Input
                     id="name"
