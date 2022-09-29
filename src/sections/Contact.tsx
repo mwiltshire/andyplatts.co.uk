@@ -103,11 +103,11 @@ export function Contact({ headingText, content, labels }: ContactProps) {
               noValidate
               name="contact"
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              netlify-honeypot="url"
             >
               <Stack gap="2rem">
                 <Stack gap="0.5rem">
-                  <Field type="hidden" name="bot-field" />
+                  <Field type="hidden" name="url" />
                   <Label htmlFor="name">{labels.name}</Label>
                   <Input
                     id="name"
